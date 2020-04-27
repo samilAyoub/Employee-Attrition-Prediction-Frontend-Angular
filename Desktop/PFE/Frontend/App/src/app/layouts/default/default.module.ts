@@ -9,7 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/Services/dashboard.service';
 import {UploadingComponent} from '../../modules/uploading/uploading.component';
 import {MatButtonModule} from '@angular/material/button';
-import {DatasetService} from '../../Services/dataset.service';
+import {ApiService} from '../../Services/api.service';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
@@ -31,7 +31,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
   ],
   providers: [
     DashboardService,
-    DatasetService
+    ApiService
   ]
 })
 export class DefaultModule { }

@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {DatasetService} from '../../Services/dataset.service';
+import {ApiService} from '../../Services/api.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {DialogOverviewComponent} from '../../shared/components/dialog-overview/dialog-overview.component';
-
-export interface DialogData {
-  features: [];
-  models: [];
-}
+import {DataHandlerService} from '../../Services/data-handler.service';
 
 @Component({
   selector: 'app-uploading',
@@ -14,30 +10,24 @@ export interface DialogData {
   styleUrls: ['./uploading.component.scss']
 })
 export class UploadingComponent implements OnInit {
-  features: [];
   models = ['Logistic Regression', 'Naive Bayes', 'Random Forest', 'XGBoost'];
   selectedModel = 'Logistic Regression';
-  constructor(private datasetService: DatasetService, public dialog: MatDialog) {
-  }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewComponent, {
-      data: {features: this.features, models: this.models, selectedModel: this.selectedModel}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      this.selectedModel = result;
-    });
+  constructor(private dataHandlerService: DataHandlerService, public dialog: MatDialog) {
   }
-
 
   ngOnInit() {
   }
 
-  uploadFile(event) {
+
+  async openDialog(event) {
     const filePath = event.target.files[0];
-    this.datasetService.setData(filePath);
-    this.openDialog();
+    const jsonData = await this.dataHandlerService.csvToJson(filePath); // transform csv file to json
+    const dialogRef = this.dialog.open(DialogOverviewComponent, { // open dialog, send data and conserve the instance
+        data: {json: jsonData, models: this.models, selectedModel: this.selectedModel}
+      });
+    dialogRef.afterClosed().subscribe(result => { // subscribe and get data from dialog
+        this.selectedModel = result;
+      });
     }
-
 }
-

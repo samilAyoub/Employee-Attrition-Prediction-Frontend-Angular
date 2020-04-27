@@ -9,5 +9,5 @@
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="data.selectedModel" cdkFocusInitial>Get Predictions</button>
+  <button mat-button (click)="getPrediction()" [mat-dialog-close]="data.selectedModel" cdkFocusInitial>Get Predictions</button>
 </mat-dialog-actions>
