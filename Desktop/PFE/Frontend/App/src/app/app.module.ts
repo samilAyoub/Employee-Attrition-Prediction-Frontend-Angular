@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DefaultModule} from './layouts/default/default.module';
-import { TableComponent } from './shared/widgets/table/table.component';
-import {MatTableModule} from "@angular/material/table";
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -15,6 +15,7 @@ import {MatTableModule} from "@angular/material/table";
     ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DefaultModule

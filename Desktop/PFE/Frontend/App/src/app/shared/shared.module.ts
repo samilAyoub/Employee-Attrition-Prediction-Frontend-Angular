@@ -11,6 +11,10 @@ import { AreaComponent } from './widgets/area/area.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
+import { DialogOverviewComponent } from './components/dialog-overview/dialog-overview.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { PieComponent } from './widgets/pie/pie.component';
     SidebarComponent,
     AreaComponent,
     CardComponent,
-    PieComponent
+    PieComponent,
+    DialogOverviewComponent
+  ],
+  entryComponents: [
+    DialogOverviewComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +39,10 @@ import { PieComponent } from './widgets/pie/pie.component';
     MatMenuModule,
     MatListModule,
     RouterModule,
-    HighchartsChartModule
+    MatDialogModule,
+    HighchartsChartModule,
+    MatRadioModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
