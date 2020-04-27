@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Model Selection</h2>
+
+<mat-dialog-content>
+  <label>Select Model: </label>
+    <mat-radio-group [(ngModel)]="data.selectedModel" >
+      <mat-radio-button *ngFor="let model of data.models" value="{{model}}" >{{model}}</mat-radio-button>
+    </mat-radio-group>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="data.selectedModel" cdkFocusInitial>Get Predictions</button>
+</mat-dialog-actions>
