@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import {DatasetService} from '../../../Services/dataset.service';
+import {ApiService} from '../../../Services/api.service';
 
 
 export interface Employee {
@@ -21,7 +21,7 @@ export class TableComponent implements OnInit {
   ELEMENT_DATA: Employee[] = [];
   dataSource = new MatTableDataSource<Employee>(this.ELEMENT_DATA);
   displayedColumns: string[] = ['Age', 'BusinessTravel', 'DailyRate', 'Department'];
-  constructor(private datasetService: DatasetService) { }
+  constructor(private datasetService: ApiService) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
   /*  this.datasetService.data.subscribe(data => {
