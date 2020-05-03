@@ -2,32 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterModule } from '@angular/router';
-
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { AreaComponent } from './widgets/area/area.component';
-import { HighchartsChartModule } from 'highcharts-angular';
-import { CardComponent } from './widgets/card/card.component';
-import { PieComponent } from './widgets/pie/pie.component';
-import { DialogOverviewComponent } from './components/dialog-overview/dialog-overview.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatRadioModule} from '@angular/material/radio';
-import {FormsModule} from "@angular/forms";
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
-    AreaComponent,
-    CardComponent,
-    PieComponent,
-    DialogOverviewComponent
-  ],
-  entryComponents: [
-    DialogOverviewComponent
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -37,20 +20,12 @@ import {FormsModule} from "@angular/forms";
     MatButtonModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatListModule,
-    RouterModule,
-    MatDialogModule,
-    HighchartsChartModule,
-    MatRadioModule,
-    FormsModule
+    MatListModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
-    AreaComponent,
-    CardComponent,
-    PieComponent
+    SidebarComponent
   ]
 })
 export class SharedModule { }

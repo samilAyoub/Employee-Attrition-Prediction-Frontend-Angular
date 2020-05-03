@@ -1,0 +1,10 @@
+<div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="dataset | scatter: xLabel: yLabel:zLabel"
+            [options]="scatterChartOptions"
+            [legend]="scatterChartLegend"
+            [chartType]="scatterChartType">
+    </canvas>
+  </div>
+</div>

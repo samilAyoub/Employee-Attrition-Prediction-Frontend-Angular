@@ -4,25 +4,29 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DefaultModule} from './layouts/default/default.module';
-import {HttpClientModule} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
+import {SharedModule} from './shared/shared.module';
+import {UploadingModule} from './uploading/uploading.module';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {PredictionDetailsModule} from './predictions-details/prediction-details.module';
 
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DefaultModule
+    MatSidenavModule,
+    CommonModule,
+    SharedModule,
+    UploadingModule,
+    PredictionDetailsModule
   ],
     providers: [],
-  exports: [
-  ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

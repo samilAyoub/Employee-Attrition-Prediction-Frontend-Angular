@@ -1,0 +1,11 @@
+<div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="yLabel === 'count' ? (dataset | hist: xLabel :zLabel) : null"
+            [labels]="dataset | label: xLabel | unique"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+</div>

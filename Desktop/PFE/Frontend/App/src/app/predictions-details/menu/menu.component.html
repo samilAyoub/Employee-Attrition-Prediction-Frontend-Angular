@@ -1,0 +1,44 @@
+<mat-nav-list>
+  <h2 matSubheader>Chart type</h2>
+  <a mat-list-item routerLinkActive="active"
+     [routerLink]="['bar']"
+     [queryParams]="{'x': xSelected, 'y': ySelected, 'z': zSelected}"> Bar Chart</a>
+  <a mat-list-item routerLinkActive="active"
+     [routerLink]="['pie']"
+     [queryParams]="{'x': xSelected, 'y': ySelected, 'z': zSelected}">Pie Chart</a>
+  <a mat-list-item routerLinkActive="active"
+     [routerLink]="['scatter']"
+     [queryParams]="{'x': xSelected, 'y': ySelected, 'z': zSelected}">Scatter Chart</a>
+  <a mat-list-item routerLinkActive="active"
+     [routerLink]="['line']"
+     [queryParams]="{'x': xSelected, 'y': ySelected, 'z': zSelected}">Line Chart</a>
+
+
+  <mat-divider></mat-divider>
+
+  <h2 matSubheader>Features Selection</h2>
+
+  <mat-form-field>
+  <mat-label>xAxis</mat-label>
+  <mat-select [(value)]="xSelected" (selectionChange)="onXChange($event)" >
+    <mat-option [value]="feature" *ngFor="let feature of features">{{feature}}</mat-option>
+  </mat-select>
+  </mat-form-field>
+
+ <mat-form-field>
+  <mat-label>xAxis</mat-label>
+  <mat-select [(value)]="ySelected" (selectionChange)="onYChange($event)">
+    <mat-option value="count">Count(histogram)</mat-option>
+    <mat-option [value]="feature" *ngFor="let feature of features">{{feature}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>zAxis</mat-label>
+  <mat-select [(value)]="zSelected" (selectionChange)="onZChange($event)">
+    <mat-option value="none">None</mat-option>
+    <mat-option [value]="feature" *ngFor="let feature of features">{{feature}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+</mat-nav-list>

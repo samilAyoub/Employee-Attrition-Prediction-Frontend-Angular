@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DefaultComponent } from './layouts/default/default.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import {UploadingComponent} from './modules/uploading/uploading.component';
+import {UploadingComponent} from './uploading/uploading.component';
+import {PredictionsDetailsComponent} from './predictions-details/predictions-details.component';
+import {PredictionDetailsGuard} from './predictions-details/prediction-details.guard';
 
 const routes: Routes = [{
-  path: '',
-  component: DefaultComponent,
-  children: [{
     path: '',
     component: UploadingComponent
   }, {
-    path: 'dash',
-    component: DashboardComponent
-  }]
-}];
+    path: 'pred',
+    canActivate: [PredictionDetailsGuard],
+    component: PredictionsDetailsComponent
+  }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
