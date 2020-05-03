@@ -30,7 +30,7 @@ export class ScatterPipe implements PipeTransform {
         response.push({data: scatterData, label: zUnique});
       }
     } else {
-      scatterData = [];
+      scatterData = [];:::
       dataset.map(employee => {
         scatterData.push({x: employee[xLabel], y: employee[yLabel]});
       });
